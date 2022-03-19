@@ -1,3 +1,3 @@
 # Emergency App
 
-## MDS Project
+## Software Development Methods Project
