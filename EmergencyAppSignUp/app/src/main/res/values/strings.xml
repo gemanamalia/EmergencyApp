@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EmergencyAppSignUp</string>
+    <string name="no_account">Not have account? <b>SignUp</b></string> <!-- make signup bold-->
+</resources>
