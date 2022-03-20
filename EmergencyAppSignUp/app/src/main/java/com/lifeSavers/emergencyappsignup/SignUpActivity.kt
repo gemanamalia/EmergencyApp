@@ -2,14 +2,15 @@ package com.lifeSavers.emergencyappsignup
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.lifeSavers.emergencyappsignup.databinding.ActivitySignUpBinding
+import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
     // ViewBinding
@@ -24,8 +25,12 @@ class SignUpActivity : AppCompatActivity() {
     // FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
 
+    private var name = ""
     private var email = ""
+    private var phoneNumber = ""
+    private var birthDate = ""
     private var password = ""
+    private var confirmedPassword = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,8 +62,15 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun validateData() {
         // get data
+        name = binding.nameEt.text.toString().trim()
         email = binding.emailEt.text.toString().trim()
+        phoneNumber = binding.phoneNumberEt.text.toString().trim()
+        birthDate = binding.birthDateEt.text.toString().trim()
         password = binding.passwordEt.text.toString().trim()
+        confirmedPassword = binding.confirmedPasswordEt.text.toString().trim()
+
+        val calendar = Calendar.getInstance()
+        val currentYear = calendar[Calendar.YEAR]
 
         // validate data
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -71,7 +83,23 @@ class SignUpActivity : AppCompatActivity() {
         }
         else if (password.length < 6) {
             // password length is less than 6
-            binding.passwordEt.error = "Password must at least 6 characters long"
+            binding.passwordEt.error = "Password must contain at least 6 characters"
+        }
+        else if (!password.equals(confirmedPassword)) {
+            binding.passwordEt.error = "Password and Confirmed Password must match"
+            binding.confirmedPasswordEt.error = "Password and Confirmed Password must match"
+        }
+        else if (name.equals("")) {
+            binding.nameEt.error = "Please enter name"
+        }
+        else if (name.length < 3) {
+            binding.nameEt.error = "Name must contain at least 3 letters"
+        }
+        else if (!Patterns.PHONE.matcher(phoneNumber).matches()) {
+            binding.phoneNumberEt.error = "Invalid phone format"
+        }
+        else if (birthDate.length != 4 || birthDate >= currentYear.toString()) {
+            binding.birthDateEt.error = "Invalid year"
         }
         else {
             // data is valid, continue signUp

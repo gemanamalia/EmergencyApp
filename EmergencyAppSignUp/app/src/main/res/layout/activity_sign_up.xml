@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context=".SignUpActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
     <TextView
         android:id="@+id/titleLabelTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="SignUp"
+        android:layout_gravity="center"
+        android:text="@string/signup"
         style="@style/TextAppearance.MaterialComponents.Headline4"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Create a New Account"
-        android:layout_below="@id/titleLabelTv"
+        android:layout_gravity="center"
+        android:text="@string/create_a_new_account"
+        android:paddingBottom="20dp"
         style="@style/TextAppearance.MaterialComponents.Caption"/>
+
+    <!-- Name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameTil"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/nameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:inputType="textPersonName"
+            android:autofillHints="" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Email -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTil"
-        android:layout_above="@id/passwordTil"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -35,36 +57,88 @@
             android:id="@+id/emailEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"/>
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:autofillHints="" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Phone Number -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumberTil"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/phoneNumberEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:autofillHints="" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Date of Birth -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/birthDateTil"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/birthDateEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Year of Birth"
+            android:inputType="number"
+            android:autofillHints="" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordTil"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/passwordEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"/>
-
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:autofillHints="" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Login button -->
+    <!-- Confirmed Password -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmedPasswordTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/confirmedPasswordEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:autofillHints="" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Signup button -->
     <Button
         android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:layout_below="@id/passwordTil"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="@string/sign_up" />
 
-</RelativeLayout>
+</LinearLayout>
+</ScrollView>

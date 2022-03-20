@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">EmergencyAppSignUp</string>
-    <string name="no_account">Not have account? <b>SignUp</b></string> <!-- make signup bold-->
+    <!-- make signup bold-->
+    <string name="no_account">Not have account? <b>SignUp</b></string>
+    <string name="create_a_new_account">Create a New Account</string>
+    <string name="name">Name</string>
+    <string name="signup">SignUp</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="date_of_birth">Year of Birth</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_to_your_account">Login to your account</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="year_of_birth">Year of Birth</string>
 </resources>
